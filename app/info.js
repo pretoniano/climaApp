@@ -44,16 +44,16 @@ const WeatherApp = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
       <Text style={styles.title}>Consulta de Clima</Text>
-
       <TextInput
         style={styles.input}
         placeholder="Digite o nome da cidade"
         value={city}
         onChangeText={setCity}
       />
-
       <Button title="Buscar Clima" onPress={fetchWeather} />
+      </View>
 
       {loading && (
         <ActivityIndicator size="large" color="#0000ff" style={styles.loader} />
@@ -65,7 +65,7 @@ const WeatherApp = () => {
         <View style={styles.weatherContainer}>
           <Text style={styles.weatherText}>Clima em {weather.name}:</Text>
           <Text style={styles.weatherText}>
-            Temperatura: {weather.main.temp}°C
+            Temperatura: {Math.round(weather.main.temp)}°C
           </Text>
           <Text style={styles.weatherText}>
             Descrição: {weather.weather[0].description}
@@ -85,10 +85,18 @@ const WeatherApp = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "lightpink",
+    backgroundColor: "white",
+    height: 300
+  },
+  header: {
+    display: "flex",
+    width: "100%",
+    height: "200",
+    backgroundColor: "#F9F9F9",
+    alignItems: "center",
+    borderRadius: 7,
   },
   title: {
     fontSize: 24,
@@ -96,7 +104,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    width: "100%",
+    width: "90%",
     height: 40,
     borderColor: "#ccc",
     borderWidth: 1,
@@ -112,10 +120,18 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   weatherContainer: {
-    marginTop: 20,
+    display: "flex",
+    height: "40%",
+    width: "65%",
+    marginTop: 200,
     alignItems: "center",
+    justifyContent:"center",
+    backgroundColor: "#F7C7CF",
+    borderRadius: 10,
+    boxShadow: "1 1 6"
   },
   weatherText: {
+    color: "#64635E",
     fontSize: 18,
     marginVertical: 2,
   },

@@ -7,7 +7,7 @@ export default function Home() {
 
     <Image source={require("../src/assets/iconeClima.png")} style={styles.icon} />
 
-    <Text style={styles.title} >BEM VINDO AO SEU APP DE TEMPO</Text>
+    <Text style={styles.title} >Bem-vindo ao CLIMA COMP</Text>
 
     <TouchableOpacity style ={styles.button}>
     <Link href="/info"> 
